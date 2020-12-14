@@ -1,0 +1,80 @@
+<nz-breadcrumb nz-page-header-breadcrumb [nzAutoGenerate]="true">
+  <nz-breadcrumb-item>
+    <i nz-icon nzType="home"></i>
+  </nz-breadcrumb-item>
+</nz-breadcrumb>
+<br />
+<div nz-row nzJustify="center">
+  <nz-date-picker  nzAllowClear="false" [nzSize]="'large'" nzMode="month" [nzFormat]="'MM/yyyy'" [(ngModel)]="date" nzPlaceHolder="Chọn tháng cần xem"
+  (ngModelChange)="getData($event)" style="width: 200px;"></nz-date-picker>
+</div>
+<br>
+<nz-divider nzText="1. THEO ĐƠN VỊ" nzOrientation="left" style="color: red;"></nz-divider>
+<div nz-col nzSpan="24">
+  <nz-table #basicTable nzShowPagination='false' nzTotal nzShowTotal nzBordered [nzLoading]=loading [nzData]="listOfDataDonvi.msg">
+    <thead>
+      <tr>
+        <th nzAlign="center">STT</th>
+        <th nzAlign="center">Đơn vị</th>
+        <th nzAlign="center" nzWidth="15%">SL Site được tạo</th>
+        <th nzAlign="center" nzWidth="15%">SL Site CT</th>
+        <th nzAlign="center" nzWidth="15%">SL Site Demo chuyển CT</th>
+        <th nzAlign="center" nzWidth="15%">SL Site Demo chưa chuyển CT</th>
+      </tr>
+    </thead>
+    <tbody>
+       <tr *ngIf="listOfDataDonvi.msg!=''" style="font-weight: bold;color: red;">
+        <td colSpan="2" nzAlign="center">Tổng cộng</td>
+        <td nzAlign="center">{{sumCountSiteCreated}}</td>
+        <td nzAlign="center">{{sumCountGolive}}</td>
+        <td nzAlign="center">{{sumCountGoliveinMonth}}</td>
+        <td nzAlign="center">{{sumCountDemoNotGoliveInMonth}}</td>
+      </tr>
+      <tr *ngFor="let data of listOfDataDonvi.msg ; index as i">
+        <td nzAlign="center">{{ i+1 }}</td>
+        <td nzAlign="center">{{data._id.unitCode}}</td>
+        <td nzAlign="center">{{data.countSiteCreated}}</td>
+        <td nzAlign="center">{{data.countGolive}}</td>
+        <td nzAlign="center">{{data.countGoliveinMonth}}</td>
+        <td nzAlign="center">{{data.countDemoNotGoliveInMonth}}</td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>
+
+
+
+<nz-divider nzText="2. THEO AM" nzOrientation="left" style="color: red;"></nz-divider>
+<div nz-col nzSpan="24">
+  <nz-table #basicTable nzShowPagination='false' nzTotal nzShowTotal nzBordered [nzLoading]=loading [nzData]="listOfDataAM.msg">
+    <thead>
+      <tr>
+        <th nzAlign="center">STT</th>
+        <th nzAlign="center">Đơn vị</th>
+        <th nzAlign="center">AM</th>
+        <th nzAlign="center" nzWidth="15%">SL Site được tạo</th>
+        <th nzAlign="center" nzWidth="15%">SL Site CT</th>
+        <th nzAlign="center" nzWidth="15%">SL Site Demo chuyển CT</th>
+        <th nzAlign="center" nzWidth="15%">SL Site Demo chưa chuyển CT</th>
+      </tr>
+    </thead>
+    <tbody>
+       <tr *ngIf="listOfDataAM.msg!=''" style="font-weight: bold;color: red;">
+        <td colSpan="3" nzAlign="center">Tổng cộng</td>
+        <td nzAlign="center">{{sumCountSiteCreated}}</td>
+        <td nzAlign="center">{{sumCountGolive}}</td>
+        <td nzAlign="center">{{sumCountGoliveinMonth}}</td>
+        <td nzAlign="center">{{sumCountDemoNotGoliveInMonth}}</td>
+      </tr>
+      <tr *ngFor="let data of listOfDataAM.msg ; index as i">
+        <td nzAlign="center">{{ i+1 }}</td>
+        <td nzAlign="center">{{data._id.unitCode}}</td>
+        <td nzAlign="left">{{data._id.userName}}</td>
+        <td nzAlign="center">{{data.countSiteCreated}}</td>
+        <td nzAlign="center">{{data.countGolive}}</td>
+        <td nzAlign="center">{{data.countGoliveinMonth}}</td>
+        <td nzAlign="center">{{data.countDemoNotGoliveInMonth}}</td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>

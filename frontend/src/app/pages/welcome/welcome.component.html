@@ -1,0 +1,42 @@
+<nz-breadcrumb nz-page-header-breadcrumb [nzAutoGenerate]="true">
+  <nz-breadcrumb-item>
+    <i nz-icon nzType="home"></i>
+  </nz-breadcrumb-item>
+</nz-breadcrumb>
+<br />
+<div nz-row [nzGutter]="16">
+  <div nz-col class="gutter-row" [nzSpan]="6">
+    <nz-card nzHoverable [nzCover]="coverTemplate">
+      <nz-card-meta nzTitle="HÓA ĐƠN ĐIỆN TỬ" nzDescription="VNPT - INVOICE">
+      </nz-card-meta>
+    </nz-card>
+    <ng-template #coverTemplate>
+      <img alt="example" src="../../../assets/images/panels/INVOICE_790X548-04.jpg" />
+    </ng-template>
+  </div>
+  <div nz-col class="gutter-row" [nzSpan]="6">
+    <nz-card nzHoverable [nzCover]="coverTemplate2">
+      <nz-card-meta nzTitle="CHỮ KÝ SỐ" nzDescription="VNPT - CA"></nz-card-meta>
+    </nz-card>
+    <ng-template #coverTemplate2>
+      <img alt="example" src="../../../assets/images/panels/CA_790X548-02.jpg" />
+    </ng-template>
+  </div>
+  <div nz-col class="gutter-row" [nzSpan]="6">
+    <a href="#"></a>
+    <nz-card nzHoverable [nzCover]="coverTemplate3">
+      <nz-card-meta nzTitle="BẢO HIỂM XÃ HỘI" nzDescription="VNPT - BHXH"></nz-card-meta>
+    </nz-card>
+    <ng-template #coverTemplate3>
+      <img alt="example" src="../../../assets/images/panels/BHXH_790X548-03.jpg" />
+    </ng-template>
+  </div>
+  <div nz-col class="gutter-row" [nzSpan]="6">
+    <nz-card nzHoverable [nzCover]="coverTemplate4">
+      <nz-card-meta nzTitle="VĂN PHÒNG ĐIỆN TỬ" nzDescription="VNPT - IOFFICE"></nz-card-meta>
+    </nz-card>
+    <ng-template #coverTemplate4>
+      <img alt="example" src="../../../assets/images/panels/ioffce.jpg" />
+    </ng-template>
+  </div>
+</div>
